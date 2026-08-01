@@ -5,7 +5,6 @@ import ProjectsSection from "./ProjectsSection";
 import ContactMeSection from "./ContactMeSection";
 import Footer from "./Footer";
 import ExperienceSection from "./ExperienceSection";
-import CapabilitiesSection from "./CapabilitiesSection";
 import ResearchSection from "./ResearchSection";
 import ThesisProjectPage from "./ThesisProjectPage";
 
@@ -41,7 +40,6 @@ function App() {
         <main id="main-content" className="space-y-0">
           <LandingSection />
           <ProjectsSection />
-          <CapabilitiesSection />
           <ExperienceSection />
           <ResearchSection />
           <ContactMeSection />

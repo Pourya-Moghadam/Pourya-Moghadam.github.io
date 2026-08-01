@@ -5,7 +5,6 @@ import { profile } from "./content/profile";
 
 const navigation = [
   { label: "Projects", href: "#projects-section" },
-  { label: "Capabilities", href: "#capabilities-section" },
   { label: "Experience", href: "#experience-section" },
   { label: "Research", href: "#research-section" },
 ];

@@ -1,7 +1,7 @@
 import { HiArrowRight } from "react-icons/hi";
 import FullScreenSection from "./FullScreenSection";
 import { profile } from "./content/profile";
-import { contactFocusAreas } from "./content/skills";
+import { contactFocusAreas } from "./content/contact";
 import Button from "./components/ui/Button";
 import Tag from "./components/ui/Tag";
 import { socialLinks } from "./content/socialLinks";
@@ -18,7 +18,7 @@ const ContactMeSection = () => {
     >
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)] lg:items-end">
         <div>
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-[#67E3EA]">06 / Contact</p>
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-[#67E3EA]">05 / Contact</p>
           <h2 id="contact-title" className="mt-6 max-w-4xl text-4xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-6xl">
             Let’s build a machine learning system that earns trust in production.
           </h2>
