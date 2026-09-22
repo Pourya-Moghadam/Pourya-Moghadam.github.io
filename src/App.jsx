@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useTheme from "./hooks/useTheme";
 import Header from "./Header";
 import LandingSection from "./LandingSection";
 import ProjectsSection from "./ProjectsSection";
@@ -22,6 +23,7 @@ const useHashRoute = () => {
 
 function App() {
   const hash = useHashRoute();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const isThesisProject = hash === "#/phd-research" || hash.startsWith("#/phd-research/");
@@ -37,12 +39,12 @@ function App() {
     return () => window.cancelAnimationFrame(frame);
   }, [hash]);
 
-  if (hash === "#/phd-research" || hash.startsWith("#/phd-research/")) return <ThesisProjectPage />;
+  if (hash === "#/phd-research" || hash.startsWith("#/phd-research/")) return <ThesisProjectPage theme={theme} onToggleTheme={toggleTheme} />;
 
   return (
       <div className="portfolio">
         <a href="#main-content" className="skip-link">Skip to main content</a>
-        <Header />
+        <Header theme={theme} onToggleTheme={toggleTheme} />
         <main id="main-content" >
           <LandingSection />
           <ExperienceSection />

@@ -1,3 +1,4 @@
+import ThemeToggle from "./components/ui/ThemeToggle";
 import PageContainer from "./components/layout/PageContainer";
 import { profile } from "./content/profile";
 
@@ -82,11 +83,14 @@ const sections = [
   { id: "primary-system", label: "E2R-FuseNet" },
 ];
 
-const ThesisProjectPage = () => (
+const ThesisProjectPage = ({ theme, onToggleTheme }) => (
   <div className="thesis-page">
     <a href="#/phd-research/thesis-main" className="skip-link">Skip to project content</a>
     <header className="site-header">
-      <PageContainer><a className="back-link" href="#projects-section">Back to portfolio</a></PageContainer>
+      <PageContainer className="header-row">
+        <a className="back-link" href="#projects-section">Back to portfolio</a>
+        <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+      </PageContainer>
     </header>
     <PageContainer>
       <main id="thesis-main">

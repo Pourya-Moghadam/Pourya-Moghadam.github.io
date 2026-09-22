@@ -1,3 +1,4 @@
+import ThemeToggle from "./components/ui/ThemeToggle";
 import PageContainer from "./components/layout/PageContainer";
 
 const navigation = [
@@ -8,14 +9,15 @@ const navigation = [
   { label: "Contact", href: "#contactme-section" },
 ];
 
-const Header = () => (
+const Header = ({ theme, onToggleTheme }) => (
   <header className="site-header">
-    <PageContainer>
+    <PageContainer className="header-row">
       <nav aria-label="Primary navigation">
         {navigation.map((item) => (
           <a key={item.href} href={item.href}>{item.label}</a>
         ))}
       </nav>
+      <ThemeToggle theme={theme} onToggle={onToggleTheme} />
     </PageContainer>
   </header>
 );
