@@ -4,27 +4,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        page: "#F4F5F2",
+        page: "#F5F4F0",
         surface: {
           DEFAULT: "#FFFFFF",
           elevated: "#EEF1F3",
         },
         primary: "#101828",
         secondary: "#52606D",
-        muted: "#718096",
+        muted: "#637080",
         accent: {
-          DEFAULT: "#007F8F",
-          hover: "#006775",
+          DEFAULT: "#3159DC",
+          hover: "#2344B4",
         },
         signal: "#4F6BED",
         subtle: "#D8DEE6",
-        focus: "#007F8F",
+        focus: "#3159DC",
         success: "#15803D",
         warning: "#A16207",
         error: "#B42318",
-        ink: "#0A1220",
+        ink: "#0B1120",
         ocean: "#122033",
-        dusk: "#0A1220",
+        dusk: "#0B1120",
       },
       maxWidth: {
         content: "78rem",
@@ -36,7 +36,7 @@ export default {
       },
       borderRadius: {
         panel: "0.375rem",
-        control: "0.25rem",
+        control: "0.5rem",
       },
       boxShadow: {
         panel: "0 1px 2px rgba(16, 24, 40, 0.04), 0 12px 32px rgba(16, 24, 40, 0.06)",

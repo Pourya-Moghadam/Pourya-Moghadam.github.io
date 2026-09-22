@@ -1,8 +1,5 @@
 export const experienceSection = {
-  eyebrow: "03 / Experience",
-  title: "Three years of shipping ML systems.",
-  description:
-    "Hands-on work across applied AI, machine learning, and data systems, alongside technical teaching at the University of Toronto.",
+  title: "Experience",
 };
 
 export const experience = [
@@ -14,8 +11,8 @@ export const experience = [
     startDate: "Jan 2024",
     endDate: "April 2025",
     summary:
-      "Built and shipped LLM-powered features for real business workflows. The work covered prompt and retrieval pipelines, backend integration, evaluation, deployment, and the practical guardrails needed to run generative AI reliably.",
-    highlights: ["LLM application development", "Production integration", "Evaluation and reliability"],
+      "Developed LLM application features and integrated them with backend services through REST APIs. Implemented retrieval pipelines, evaluation, deployment, and production safeguards.",
+    highlights: ["Backend integration & REST APIs", "Deployment & reliability", "LLM application development"],
     technologies: ["Python", "LLMs", "REST APIs"],
     category: "industry",
     featured: true,
@@ -28,7 +25,7 @@ export const experience = [
     startDate: "Jun 2021",
     endDate: "Aug 2023",
     summary:
-      "Designed and deployed a production pricing system for Iran’s largest e-commerce platform, combining demand forecasting, business rules, and resilient fallback logic to support reliable real-time decisions. The system contributed to a 9% reduction in incentive spend and a 4% improvement in on-time fulfillment, supported by reproducible evaluation and monitoring workflows that helped maintain performance in production.",
+      "Designed and deployed a pricing system combining demand forecasting, business rules, and fallback logic. The system contributed to a 9% reduction in incentive spend and a 4% improvement in on-time fulfillment. Developed evaluation and monitoring workflows for production use.",
     highlights: [],
     technologies: [],
     category: "industry",

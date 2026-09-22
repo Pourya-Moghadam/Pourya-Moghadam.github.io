@@ -1,5 +1,3 @@
-import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
-import Button from "./components/ui/Button";
 import PageContainer from "./components/layout/PageContainer";
 import { profile } from "./content/profile";
 
@@ -9,7 +7,7 @@ const contributions = [
     title: "EFACT",
     label: "RGB-D reference model",
     description:
-      "A lightweight RGB-D architecture that uses cross-modal attention and temporal modeling for fine-grained activity recognition. Quantization-aware optimization made it a high-performance reference point for the privacy-preserving systems that followed.",
+      "A lightweight RGB-D architecture that uses cross-modal attention and temporal modeling for fine-grained activity recognition. Quantization-aware optimization was evaluated for use as a reference model.",
   },
   {
     number: "02",
@@ -41,156 +39,112 @@ const contributions = [
   },
 ];
 
-const ThesisFigure = ({ src, alt, caption, className = "" }) => (
-  <figure className={`border border-subtle bg-white p-3 sm:p-5 ${className}`}>
-    <img src={src} alt={alt} loading="lazy" className="h-auto w-full" />
-    <figcaption className="mt-4 border-t border-subtle pt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.08em] text-muted">
-      {caption}
+const figureDimensions = {
+  "/thesis-figures/edgetcnformer-architecture.webp": [
+    1800,
+    525
+  ],
+  "/thesis-figures/homelab-layout.webp": [
+    1800,
+    642
+  ],
+  "/thesis-figures/efact-architecture.webp": [
+    1800,
+    1241
+  ],
+  "/thesis-figures/adl-taxonomy.webp": [
+    1400,
+    933
+  ],
+  "/thesis-figures/e2r-fusenet-architecture.webp": [
+    1800,
+    874
+  ]
+};
+
+const ThesisFigure = ({ src, alt, caption }) => (
+  <figure className="thesis-figure">
+    <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size figure: ${alt}`}>
+      <img src={src} alt={alt} width={figureDimensions[src][0]} height={figureDimensions[src][1]} loading="lazy" />
+    </a>
+    <figcaption>
+      <span>{caption}</span>
+      <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Full-size figure: ${alt}`}>Full-size image</a>
     </figcaption>
   </figure>
 );
 
+const sections = [
+  { id: "motivation", label: "Motivation" },
+  { id: "environment", label: "Research environment" },
+  { id: "contributions", label: "Contributions" },
+  { id: "reference-systems", label: "Reference systems" },
+  { id: "primary-system", label: "E2R-FuseNet" },
+];
+
 const ThesisProjectPage = () => (
-  <div className="min-h-screen bg-page text-primary">
-    <a href="#thesis-main" className="skip-link">Skip to project content</a>
-    <header className="border-b border-white/15 bg-ink text-white">
-      <PageContainer className="flex min-h-[4.5rem] items-center justify-between gap-6">
-        <a href="/#projects-section" className="inline-flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-[#B8C3CF] hover:text-[#67E3EA]">
-          <HiArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to portfolio
-        </a>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#8392A5]">Doctoral research / 2026</span>
-      </PageContainer>
+  <div className="thesis-page">
+    <a href="#/phd-research/thesis-main" className="skip-link">Skip to project content</a>
+    <header className="site-header">
+      <PageContainer><a className="back-link" href="#projects-section">Back to portfolio</a></PageContainer>
     </header>
-
-    <main id="thesis-main">
-      <section className="bg-ink py-20 text-white sm:py-28">
-        <PageContainer>
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-[#67E3EA]">Completed PhD project · University of Toronto</p>
-          <h1 className="mt-7 max-w-5xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
-            Multimodal AI Systems for Privacy-Preserving Activity of Daily Living Monitoring in Smart Homes
-          </h1>
-          <p className="mt-8 max-w-3xl text-xl leading-relaxed text-[#B8C3CF]">
-            A complete machine learning pipeline—from multimodal dataset creation to lightweight sensor fusion—for monitoring daily living without continuous video recording.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 font-mono text-[10px] uppercase tracking-[0.1em] text-[#8392A5]">
-            <span>Machine learning</span><span>Multimodal sensing</span><span>Edge AI</span><span>Smart healthcare</span>
-          </div>
-        </PageContainer>
-      </section>
-
-      <section className="py-section-sm md:py-section">
-        <PageContainer>
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-            <div>
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-accent">01 / Motivation</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">Useful monitoring without pervasive surveillance.</h2>
-              <p className="mt-6 leading-relaxed text-secondary">
-                Long-term ADL monitoring can help older adults live independently and give clinicians objective information about changes in functional ability. Cameras offer rich signals but compromise privacy, wearables depend on compliance, and isolated ambient sensors often lack context.
-              </p>
-              <p className="mt-4 leading-relaxed text-secondary">
-                This research combines complementary sensing modalities to balance recognition quality, privacy, computational efficiency, and real-world edge deployment.
-              </p>
-            </div>
-            <ThesisFigure
-              src="/thesis-figures/adl-taxonomy.webp"
-              alt="Taxonomy comparing ambient, wearable, and fusion-based activity monitoring systems"
-              caption="ADL sensing approaches and the tradeoffs that motivate privacy-preserving multimodal fusion"
-            />
-          </div>
-        </PageContainer>
-      </section>
-
-      <section className="border-y border-subtle bg-surface py-section-sm md:py-section">
-        <PageContainer>
-          <div className="max-w-3xl">
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-accent">02 / Research environment</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">A smart-home testbed built around synchronized sensing.</h2>
-            <p className="mt-6 leading-relaxed text-secondary">
-              HomeSense-ADL brings radar, electricity, RGB, and depth streams into one synchronized environment. It supports both controlled activity protocols and natural free-living behavior, enabling consistent comparison across sensing choices.
-            </p>
-          </div>
-          <ThesisFigure
-            src="/thesis-figures/homelab-layout.webp"
-            alt="HomeLab rooms and sensing coverage used for multimodal activity data collection"
-            caption="HomeLab sensing layout and coverage used to collect the HomeSense-ADL dataset"
-            className="mt-10"
-          />
-        </PageContainer>
-      </section>
-
-      <section className="py-section-sm md:py-section">
-        <PageContainer>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-accent">03 / Contributions</p>
-          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight sm:text-5xl">Five connected systems, one privacy-first research program.</h2>
-          <ol className="mt-12 border-y border-subtle">
+    <PageContainer>
+      <main id="thesis-main">
+        <div className="thesis-intro">
+          <h1>Privacy-preserving multimodal activity recognition</h1>
+          <p className="entry-role">Doctoral research · University of Toronto · 2026</p>
+          <p>A machine learning pipeline that combines mmWave radar and electricity signals to recognize activities of daily living in smart homes without continuous video recording.</p>
+        </div>
+        <nav className="thesis-navigation" aria-label="Case study sections">
+          {sections.map((section) => (
+            <a key={section.id} href={`#/phd-research/${section.id}`} onClick={() => {
+              if (window.location.hash === `#/phd-research/${section.id}`) {
+                document.getElementById(section.id)?.scrollIntoView();
+              }
+            }}>{section.label}</a>
+          ))}
+        </nav>
+        <section id="motivation" className="thesis-section">
+          <h2>Motivation</h2>
+          <p>Long-term monitoring of activities of daily living can help track changes in functional ability. Cameras raise privacy concerns, wearables depend on consistent use, and individual ambient sensors can lack context.</p>
+          <p>This research combines complementary sensing modalities and evaluates recognition accuracy, privacy, and computational efficiency.</p>
+          <ThesisFigure src="/thesis-figures/adl-taxonomy.webp" alt="Taxonomy comparing ambient, wearable, and fusion-based activity monitoring systems" caption="Ambient, wearable, and fusion-based approaches to activity monitoring." />
+        </section>
+        <section id="environment" className="thesis-section">
+          <h2>Research environment</h2>
+          <p>HomeSense-ADL synchronizes radar, electricity, RGB video, and depth data. It includes scripted activities and free-living behavior for evaluating different sensing methods.</p>
+          <ThesisFigure src="/thesis-figures/homelab-layout.webp" alt="HomeLab rooms and sensing coverage used for multimodal activity data collection" caption="HomeLab sensing layout used to collect the HomeSense-ADL dataset." />
+        </section>
+        <section id="contributions" className="thesis-section">
+          <h2>Contributions</h2>
+          <ul className="contribution-list">
             {contributions.map((item) => (
-              <li key={item.number} className="grid border-b border-subtle last:border-b-0 md:grid-cols-[5rem_18rem_minmax(0,1fr)]">
-                <span className="border-b border-subtle p-5 font-mono text-xs text-accent md:border-b-0 md:border-r">{item.number}</span>
-                <div className="border-b border-subtle p-5 md:border-b-0 md:border-r">
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.1em] text-muted">{item.label}</p>
-                </div>
-                <p className="p-5 leading-relaxed text-secondary md:p-7">{item.description}</p>
+              <li key={item.number}>
+                <h3>{item.title}</h3>
+                <p className="entry-role">{item.label}</p>
+                <p>{item.description}</p>
               </li>
             ))}
-          </ol>
-        </PageContainer>
-      </section>
-
-      <section className="border-y border-subtle bg-surface py-section-sm md:py-section">
-        <PageContainer>
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-accent">04 / Reference systems</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">Learning across vision and electricity.</h2>
-              <p className="mt-5 leading-relaxed text-secondary">EFACT established the RGB-D reference architecture, while EdgeTCNformer extracted appliance-level context from aggregate electricity measurements.</p>
-            </div>
-            <div className="grid gap-6">
-              <ThesisFigure src="/thesis-figures/efact-architecture.webp" alt="EFACT cross-modal RGB-D activity recognition architecture" caption="EFACT — cross-modal RGB-D temporal architecture" />
-              <ThesisFigure src="/thesis-figures/edgetcnformer-architecture.webp" alt="EdgeTCNformer non-intrusive load monitoring architecture" caption="EdgeTCNformer — appliance-level context from aggregate electricity" />
-            </div>
-          </div>
-        </PageContainer>
-      </section>
-
-      <section className="py-section-sm md:py-section">
-        <PageContainer>
-          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
-            <div>
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-accent">05 / Primary system</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">E2R-FuseNet</h2>
-              <p className="mt-6 leading-relaxed text-secondary">
-                E2R-FuseNet fuses motion information from mmWave radar with appliance-use context from electricity signals. Cross-modal attention, reliability-aware fusion, and feature-wise modulation let each modality contribute according to its role and signal quality.
-              </p>
-              <p className="mt-4 leading-relaxed text-secondary">
-                The resulting inference pipeline eliminates continuous video recording and is designed around the efficiency constraints of in-home edge deployment.
-              </p>
-            </div>
-            <ThesisFigure src="/thesis-figures/e2r-fusenet-architecture.webp" alt="E2R-FuseNet architecture combining radar and electricity signals" caption="E2R-FuseNet — asymmetric fusion of radar motion and electricity context" />
-          </div>
-        </PageContainer>
-      </section>
-
-      <section className="bg-ink py-20 text-white sm:py-28">
-        <PageContainer>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[#67E3EA]">Research impact</p>
-          <h2 className="mt-5 max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.035em] sm:text-5xl">
-            Privacy-preserving sensing can support intelligent healthcare without turning the home into a continuously recorded space.
-          </h2>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#B8C3CF]">
-            The thesis connects dataset design, representation learning, model efficiency, and multimodal fusion into a deployable research direction for aging in place and functional-independence monitoring.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Button as="a" href={`mailto:${profile.email}`} className="!border-accent !bg-accent !text-white hover:!bg-accent-hover hover:!text-ink">
-              Discuss this research <HiArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Button>
-            <Button as="a" href="/#projects-section" variant="secondary" className="!border-white/30 !text-white hover:!border-[#67E3EA] hover:!text-[#67E3EA]">
-              Back to selected systems
-            </Button>
-          </div>
-        </PageContainer>
-      </section>
-    </main>
+          </ul>
+        </section>
+        <section id="reference-systems" className="thesis-section">
+          <h2>Reference systems</h2>
+          <p>EFACT provides an RGB-D reference architecture. EdgeTCNformer extracts appliance-level context from aggregate electricity measurements.</p>
+          <ThesisFigure src="/thesis-figures/efact-architecture.webp" alt="EFACT cross-modal RGB-D activity recognition architecture" caption="EFACT: cross-modal RGB-D temporal architecture." />
+          <ThesisFigure src="/thesis-figures/edgetcnformer-architecture.webp" alt="EdgeTCNformer non-intrusive load monitoring architecture" caption="EdgeTCNformer: appliance-level context from aggregate electricity." />
+        </section>
+        <section id="primary-system" className="thesis-section">
+          <h2>E2R-FuseNet</h2>
+          <p>E2R-FuseNet combines motion information from mmWave radar with appliance-use context from electricity signals. It uses cross-modal attention, reliability-aware fusion, and feature-wise modulation.</p>
+          <p>The inference pipeline does not require continuous video recording. The research also examines lightweight temporal models and quantization for edge inference.</p>
+          <ThesisFigure src="/thesis-figures/e2r-fusenet-architecture.webp" alt="E2R-FuseNet architecture combining radar and electricity signals" caption="E2R-FuseNet: fusion of radar motion and electricity context." />
+        </section>
+      </main>
+      <footer className="thesis-footer link-list">
+        <a href={`mailto:${profile.email}`}>Email</a>
+        <a href="#projects-section">Back to projects</a>
+      </footer>
+    </PageContainer>
   </div>
 );
 

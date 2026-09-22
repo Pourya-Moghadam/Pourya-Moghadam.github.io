@@ -24,23 +24,29 @@ function App() {
   const hash = useHashRoute();
 
   useEffect(() => {
-    const isThesisProject = hash === "#/phd-research";
+    const isThesisProject = hash === "#/phd-research" || hash.startsWith("#/phd-research/");
     document.title = isThesisProject
       ? "Doctoral Research — Pourya Moghadam"
-      : "Pourya Moghadam — Machine Learning Engineer";
-    if (isThesisProject) window.scrollTo(0, 0);
+      : "Pourya Moghadam — Software Engineer";
+    const targetId = isThesisProject ? hash.split("/")[2] : hash.slice(1);
+    const frame = window.requestAnimationFrame(() => {
+      const target = targetId && document.getElementById(targetId);
+      if (target) target.scrollIntoView();
+      else if (isThesisProject) window.scrollTo({ top: 0, behavior: "instant" });
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [hash]);
 
-  if (hash === "#/phd-research") return <ThesisProjectPage />;
+  if (hash === "#/phd-research" || hash.startsWith("#/phd-research/")) return <ThesisProjectPage />;
 
   return (
-      <div className="min-h-screen bg-page text-primary">
+      <div className="portfolio">
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Header />
-        <main id="main-content" className="space-y-0">
+        <main id="main-content" >
           <LandingSection />
-          <ProjectsSection />
           <ExperienceSection />
+          <ProjectsSection />
           <ResearchSection />
           <ContactMeSection />
         </main>

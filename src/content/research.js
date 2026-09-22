@@ -1,8 +1,5 @@
 export const researchSection = {
-  eyebrow: "04 / Research dossier",
-  title: "Selected research publications.",
-  description:
-    "Published work spanning applied machine learning, intelligent sensing, energy systems, and privacy-preserving AI.",
+  title: "Publications",
 };
 
 export const featuredResearch = {

@@ -1,63 +1,8 @@
 export const projectsSection = {
-  eyebrow: "02 / Selected systems",
-  title: "A few things I've built.",
-  description:
-    "Two projects that show how I approach applied AI: define the problem clearly, build the full system, and evaluate what matters.",
+  title: "Projects",
 };
 
 export const projects = [
-  {
-    id: "projectpilot-ai",
-    title: "ProjectPilot AI",
-    status: "In development",
-    category: "Agentic AI · Multimodal workflows",
-    positioning: "A model-flexible workspace for agentic document and image workflows",
-    summary:
-      "An agentic AI application designed to work across multiple models, process documents and images, call functions and tools, connect through MCP, and maintain memory across workflows.",
-    engineeringSummary:
-      "ProjectPilot AI is built around a model router and agent runtime that coordinate multimodal inputs, tools, MCP services, and persistent memory. I'm developing it in small, testable pieces so model behavior, retrieval quality, and failures can be measured as the system grows.",
-    image: "",
-    imageAlt: "",
-    imageWidth: null,
-    imageHeight: null,
-    highlights: [
-      "Model-flexible orchestration",
-      "Document and image processing",
-      "Function calling and tool use",
-      "MCP connections and persistent memory",
-    ],
-    architecture: ["Documents + images", "Model router", "Agent runtime", "Tools + MCP", "Memory", "Response"],
-    evidence: [],
-    technologyGroups: [
-      {
-        label: "Confirmed scope",
-        items: ["Multimodal input", "Function calling", "Tool calling", "MCP", "Memory"],
-      },
-    ],
-    repositoryUrl: "",
-    liveUrl: "",
-    actionPlaceholder: "Website coming soon",
-    caseStudyUrl: "",
-    publicationUrl: "",
-    featured: true,
-    details: {
-      problem: "",
-      documentSources: [],
-      retrievalArchitecture: "",
-      chunking: "",
-      embeddings: "",
-      vectorDatabase: "",
-      reranking: "",
-      citations: "",
-      toolCalling: "",
-      langChain: "",
-      langGraph: "",
-      agentState: "",
-      evaluation: "",
-      deployment: "",
-      limitations: [],
-    },
-  },
   {
     id: "edgefusion-act",
     title: "Privacy-Preserving Multimodal Activity Recognition",
@@ -67,11 +12,11 @@ export const projects = [
     summary:
       "A multimodal machine learning system that combines mmWave radar and electricity signals to recognize Activities of Daily Living without continuous video recording.",
     engineeringSummary:
-      "The system encodes radar and electricity time series before applying cross-modal fusion for activity recognition. It was evaluated across scripted, cross-subject, and free-living settings, with lightweight temporal modeling and quantization explored for privacy-conscious edge inference.",
-    image: "",
-    imageAlt: "Privacy-preserving multimodal activity recognition project",
-    imageWidth: 1200,
-    imageHeight: 700,
+      "Built a pipeline from multimodal dataset creation to temporal encoding and sensor fusion, with evaluation across scripted, cross-subject, and free-living settings. The work explored lightweight temporal models and quantization to balance recognition quality with the constraints of privacy-conscious edge inference.",
+    image: "/thesis-figures/e2r-fusenet-architecture.webp",
+    imageAlt: "E2R-FuseNet architecture connecting radar and electricity encoders through cross-modal fusion",
+    imageWidth: 1800,
+    imageHeight: 874,
     highlights: [
       "Radar and electricity sensor fusion",
       "Cross-modal and event-aware attention",
